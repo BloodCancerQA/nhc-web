@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+
+<body>
+    <iframe id="myIframe" src="http://localhost:8903/benefit?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjo2MzU1NDY3OTA0MywiYWNjb3VudCI6MywibW9iaWxlIjoiTVRnek1qQXhPVEl3TVRRPSIsImJhaWR1X3VpZCI6MCwiZXhwIjoxNzMwMDM3ODMwfQ.a3CVYq2DUZ4eN1qRvk_cWfz641PlnlavbA7mX6GH45U" height="960px" width="100%"></iframe>
+
+    <script>
+        const iframe = document.getElementById('myIframe');
+
+        iframe.onload = () => {
+            const token = '456'; // 在这里设置你的 token
+            iframe.contentWindow.postMessage({ token }, '*');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+FROM iregistry.baidu-int.com/ihu/arm64v8/centos7-nginx
+
+
+COPY --chown=work:work output /home/work/nhc-web
+COPY --chown=work:work output/conf/pengcheng/nginx.conf /home/work/nginx/conf/nginx.conf
+
+USER work
+WORKDIR /home/work/
+ENTRYPOINT mkdir -p /home/work/log \
+    && nginx -g 'daemon off;'

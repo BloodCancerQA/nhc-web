@@ -1,0 +1,55 @@
+Global:
+  version: 2.0
+  group_email: ihu-fe@baidu.com
+
+Default:
+  profile: [build]
+
+Profiles:
+  - profile:
+    name: build
+    mode: AGENT
+    environment:
+      image: DECK_STD_CENTOS7
+      resourceType: SMALL
+      tools:
+        - nodejs: 18.latest
+        - yarn: 1.22.4
+        - pnpm: 8.3.1
+    build:
+      command: sh build.sh
+      cache:
+        enable: true
+        type: REPO
+        trimThresholdSize: 5 # 单位 GB
+        paths:
+          - .pnpm-stores
+    artifacts:
+      release: true
+
+  - profile:
+    name: release_arm64
+    mode: AGENT_FOR_IMAGE_BUILD
+    environment:
+      image: DECK_STD_CENTOS7
+      resourceType: SMALL
+      tools:
+          - nodejs: 20.latest
+          - yarn: 1.22.4
+          - pnpm: 8.3.1
+    build:
+      command: sh build.sh
+      cache:
+        enable: true
+        type: REPO
+        trimThresholdSize: 5 # 单位 GB
+        paths:
+          - .pnpm-stores
+    artifacts:
+      release: true
+    imageBuild:
+      images:
+        - dockerfile: Dockerfile.arm64
+          repository: iregistry.baidu-int.com/ihu-pcl/pcl/nhc-web
+          tagStrategy: TIMESTAMP_COMMIT_ID
+          imagePullStrategy: Always

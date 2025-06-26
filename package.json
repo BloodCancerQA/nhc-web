@@ -1,0 +1,77 @@
+{
+    "name": "nhc-web",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "max dev",
+        "start": "max dev",
+        "build": "max build",
+        "postinstall": "max setup",
+        "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
+    },
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,jsx,less,md,json}": [
+            "prettier --write"
+        ],
+        "*.ts?(x)": [
+            "prettier --parser=typescript --write"
+        ]
+    },
+    "dependencies": {
+        "@ant-design/cssinjs": "1.17.5",
+        "@ant-design/icons": "^5.3.7",
+        "@ant-design/pro-layout": "^6.38.17",
+        "@fortaine/fetch-event-source": "^3.0.6",
+        "@umijs/max": "^4.1.1",
+        "acud": "^1.0.18",
+        "acud-icon": "^1.0.8",
+        "ahooks": "^3.7.8",
+        "antd": "^5.11.3",
+        "antd-style": "^3.5.2",
+        "axios": "0.27.2",
+        "classnames": "^2.3.2",
+        "file-saver": "^2.0.5",
+        "lodash": "^4.17.21",
+        "mobx": "^6.1.8",
+        "mobx-react": "^7.1.0",
+        "mockjs": "^1.1.0",
+        "moment": "^2.29.1",
+        "react-activation": "^0.12.4",
+        "react-json-view": "^1.21.3",
+        "react-markdown": "^9.0.1",
+        "react-markdown-it": "^1.0.2",
+        "react-resizable": "^3.0.5",
+        "react-responsive": "^10.0.1",
+        "react-typist": "^2.0.5",
+        "rehype-raw": "^7.0.0",
+        "remark-breaks": "^4.0.0",
+        "store2": "2.13.2",
+        "umi-request": "^1.4.0",
+        "unist-util-visit": "^5.0.0"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.19.1",
+        "@babel/eslint-plugin": "^7.19.1",
+        "@babel/preset-env": "^7.23.2",
+        "@ecomfe/eslint-config": "^8.0.0",
+        "@types/file-saver": "^2.0.7",
+        "@types/lodash": "^4.14.168",
+        "@types/mockjs": "^1.0.10",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@types/react-resizable": "^3.0.7",
+        "@umijs/fabric": "^3.0.0",
+        "babel-plugin-transform-remove-console": "^6.9.4",
+        "cross-env": "^7.0.3",
+        "eslint-plugin-import": "^2.29.1",
+        "lint-staged": "^10.0.7",
+        "prettier": "^2.2.0",
+        "react": "17.x",
+        "react-dom": "17.x",
+        "typescript": "^4.1.2",
+        "umi-request": "^1.4.0",
+        "yorkie": "^2.0.0"
+    }
+}
